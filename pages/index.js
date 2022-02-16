@@ -1,11 +1,15 @@
-import React from 'react'
+import Link from 'next/link'
+import Heading from '../components/Heading'
 
 const Home = () => {
-  return <div>dsad</div>
+  return (
+    <div>
+      <Heading text={'Home'} />
+      <button>
+        <Link href='./posts'>posts</Link>
+      </button>
+    </div>
+  )
 }
-
-
-
-
 
 export default Home
