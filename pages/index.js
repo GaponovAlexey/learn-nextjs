@@ -9,6 +9,10 @@ const Home = () => {
       <button>
         <Link href='./posts'>posts</Link>
       </button>
+      <br />
+      <button>
+        <Link href='./contacts'>Contacts</Link>
+      </button>
     </div>
   )
 }
