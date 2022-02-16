@@ -6,12 +6,12 @@ const Posts = () => {
     <div>
       <Heading text={'home posts'} />
       home posts two
-      <button className='btn' >
-        <Link href='./posts/posts'>next posts</Link>
+      <button>
+        <Link href='/posts/posts'>next posts</Link>
       </button>
-      <br/>
-      <button className='btn' >
-        <Link href='./'>Home</Link>
+      <br />
+      <button>
+        <Link href='/'>Home</Link>
       </button>
     </div>
   )

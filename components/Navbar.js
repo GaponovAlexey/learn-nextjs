@@ -1,6 +1,10 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import style from '../styles/Navbar.module.scss'
+
 const Navbar = () => {
+  const { pathname } = useRouter()
+
   const navigation = [
     { id: 1, title: 'Home', path: '/' },
     { id: 2, title: 'Posts', path: '/posts' },
@@ -13,7 +17,7 @@ const Navbar = () => {
       <div className={style.link}>
         {navigation.map(({ id, title, path }) => (
           <Link href={path} key={id}>
-            <a>{title}</a>
+            <a className={pathname === path ? style.active : null} >{title}</a>
           </Link>
         ))}
       </div>
