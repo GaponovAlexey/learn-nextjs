@@ -1,6 +1,6 @@
 import React from 'react'
-
-const Error = () => { return ( <div>404 error</div>) }
+import style from '../styles/404.module.scss'
+const Error = () => { return ( <div className='style' >404 error</div>) }
 
 
 export default Error
