@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Heading from '../components/Heading'
+import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
 const Home = () => {
