@@ -1,4 +1,5 @@
 const ContactInfo = ({ contact }) => {
+  
   const { id, name, email, address } = contact || {}
   const { street, suite, city, zipcode } = address || {}
   if (!contact) {
