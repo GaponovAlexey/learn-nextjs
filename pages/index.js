@@ -4,10 +4,12 @@ import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
 const Home = () => {
+
+
+  
   return (
     <div className={style.wrapper}>
       <Head>
-        
         <title>Home</title>
       </Head>
       <Heading text={'Home'} />

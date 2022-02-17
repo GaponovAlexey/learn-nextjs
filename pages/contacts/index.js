@@ -1,21 +1,31 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import Heading from '../../components/Layout/Heading'
+const baseURL = 'https://jsonplaceholder.typicode.com/users'
 
 const Contacts = () => {
+  const [contacts, setContacts] = useState(null)
+
+  useEffect(async () => {
+    const FetchData = () => {}
+    const data = response.json()
+    setContacts(data)
+    const response = await fetch(baseURL)
+    FetchData()
+  }, [])
+
   return (
     <>
       <Head>
-        <title>contents</title>
+        <title>Contacts</title>
       </Head>
       <Heading text={'home contacts'} />
-      <button className='btn'>
-        <Link href='./contacts/contacts'>next Contacts</Link>
-      </button>
-      <br />
-      <button className='btn'>
-        <Link href='./'>Home</Link>
-      </button>
+      {contacts.map((el) => (
+        <div>{el.name}</div>
+      ))}
+
+      <Link href='./contacts/contacts'>next Contacts</Link>
     </>
   )
 }
