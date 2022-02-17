@@ -3,7 +3,7 @@ import Heading from '../../components/Layout/Heading'
 
 const Contacts = () => {
   return (
-    <div>
+    <>
       <Heading text={'home contacts'} />
       <button className='btn'>
         <Link href='./contacts/contacts'>next Contacts</Link>
@@ -12,7 +12,7 @@ const Contacts = () => {
       <button className='btn'>
         <Link href='./'>Home</Link>
       </button>
-    </div>
+    </>
   )
 }
 

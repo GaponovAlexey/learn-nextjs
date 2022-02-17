@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className={style.nav}>
       <div className={style.logo}>webdev</div>
-      <div className={style.link}>
+      <div className={style.links}>
         {navigation.map(({ id, title, path }) => (
           <Link href={path} key={id}>
             <a className={pathname === path ? style.active : null} >{title}</a>

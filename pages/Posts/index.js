@@ -3,7 +3,7 @@ import Heading from '../../components/Layout/Heading'
 
 const Posts = () => {
   return (
-    <div>
+    <>
       <Heading text={'home posts'} />
       home posts two
       <button>
@@ -13,7 +13,7 @@ const Posts = () => {
       <button>
         <Link href='/'>Home</Link>
       </button>
-    </div>
+    </>
   )
 }
 
