@@ -11,7 +11,7 @@ export const getServerSideProps = async (context) => {
     return { notFound: true }
   }
   return {
-    props: { posts: data.splice(0 ,10) },
+    props: { posts: data.splice(0, 10) },
   }
 }
 
@@ -22,11 +22,15 @@ const Posts = ({ posts }) => {
         <title>posts</title>
       </Head>
       {posts &&
-        posts.map(({id, title, body }) => {
+        posts.map(({ id, title, body }) => {
           return (
             <div key={id}>
-              {id} - 
-              <strong>{title}</strong>
+              {id} -
+              <strong>
+                <Link href={`/posts/${id}`}>
+                  <span style={{ color: 'red' }}>{title}</span>
+                </Link>
+              </strong>
               <br />
               {body}
             </div>
