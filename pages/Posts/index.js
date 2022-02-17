@@ -1,10 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Heading from '../../components/Layout/Heading'
 
 const baseURL = 'https://jsonplaceholder.typicode.com/posts'
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const response = await fetch(baseURL)
   const data = await response.json()
   if (!data) {

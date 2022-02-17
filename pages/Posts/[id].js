@@ -1,19 +1,15 @@
-import Link from 'next/link'
-import Heading from '../../components/Layout/Heading'
+import Head from 'next/head'
 
-const baseURL = 'https://jsonplaceholder.typicode.com/posts'
+const baseURL = 'https://jsonplaceholder.typicode.com/posts/'
 
 export const getStaticPaths = async () => {
   const response = await fetch(baseURL)
   const data = await response.json()
 
-  const path = data.map(({ id }) => ({
+  const paths = data.map(({ id }) => ({
     params: { id: id.toString() },
   }))
-  return {
-    path,
-    fallback: false,
-  }
+  return { paths, fallback: false }
 }
 
 export const getStaticProps = async (context) => {
@@ -30,7 +26,19 @@ export const getStaticProps = async (context) => {
 }
 
 const Posts = ({ posts }) => {
-  return <>hi</>
+  const { body, title, id } = posts || {}
+  console.log(body)
+  return (
+    <>
+      <Head>
+        <title>posts</title>
+      </Head>
+      <div>
+        <strong>{title}</strong>
+        <div>{body}</div>
+      </div>
+    </>
+  )
 }
 
 export default Posts
