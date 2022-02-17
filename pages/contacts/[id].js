@@ -1,10 +1,13 @@
 import Link from 'next/link'
+import ContactInfo from '../../components/ContactInfo'
+
 import Heading from '../../components/Layout/Heading'
-const Contacts = () => {
+
+const Contacts = ({ contact }) => {
   return (
     <>
-      <Heading text={'Contacts in Contacts'} />
-      
+      <ContactInfo contact={contact} />
+
       <Link href='./'>back</Link>
     </>
   )
