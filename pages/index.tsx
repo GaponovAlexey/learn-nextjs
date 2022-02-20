@@ -5,23 +5,7 @@ import { FC } from 'react'
 import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
-export const getStaticProps:GetStaticProps = async () => {
-  try {
-    const res = await fetch(`${process.env.API_HOST}/socials`)
-    const data = await res.json()
 
-    if (!data) {
-      return { notFound: true }
-    }
-    return {
-      props: { socials: data },
-    }
-  } catch {
-    return {
-      props: { socials: null },
-    }
-  }
-}
 
 interface Hometype {
   id: number
@@ -57,3 +41,21 @@ const Home: FC<homeTypeProp> = ({ socials }) => {
 }
 
 export default Home
+
+export const getStaticProps:GetStaticProps = async () => {
+  try {
+    const res = await fetch(`${process.env.API_HOST}/socials`)
+    const data = await res.json()
+
+    if (!data) {
+      return { notFound: true }
+    }
+    return {
+      props: { socials: data },
+    }
+  } catch {
+    return {
+      props: { socials: null },
+    }
+  }
+}
