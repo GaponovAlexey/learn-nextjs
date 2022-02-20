@@ -1,13 +1,12 @@
 import { FC } from 'react'
 type heading = {
-  tag: string
+  tag: any
   text: string
-  
 }
 
 const Heading: FC<heading> = ({ tag, text }) => {
-  const Tag = tag || 'h1'
-  return <Tag>`${text}`</Tag>
+  const Tag:any = tag || 'h1'
+  return <Tag>{text}</Tag>
 }
 
 export default Heading
