@@ -1,12 +1,13 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { FC } from 'react'
 import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
-    const res = await fetch(process.env.BASE_URL + `/socials`)
+    const res = await fetch(`process.env.BASE_URL/socials`)
     const data = await res.json()
 
     if (!data) {
@@ -15,7 +16,7 @@ export const getStaticProps = async () => {
     return {
       props: { socials: data },
     }
-  } catch (err) {
+  } catch {
     return {
       props: { socials: null },
     }
