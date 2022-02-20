@@ -3,10 +3,22 @@ import Link from 'next/link'
 import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
-const Home = () => {
+export const getStaticProps = async () => {
+  const res = await fetch('http://localhost:3000/api/socials')
+  const data = await res.json()
 
+  if (!data) {
+    return { notFound: true }
+  }
+  return {
+    props: { socials: data },
+  }
+}
 
-
+const Home = ({ socials }) => {
+  if(!socials) {
+    return null
+  }
   return (
     <div className={style.wrapper}>
       <Head>
@@ -20,6 +32,9 @@ const Home = () => {
       <button>
         <Link href='./contacts'>Contacts</Link>
       </button>
+      <div>
+        {socials && socials.map((el) => <div key={el.id}>{el.name}</div>)}
+      </div>
     </div>
   )
 }
