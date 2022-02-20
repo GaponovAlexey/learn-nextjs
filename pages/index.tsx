@@ -5,7 +5,7 @@ import { FC } from 'react'
 import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps:GetStaticProps = async () => {
   try {
     const res = await fetch(`${process.env.BASE_URL}/socials`)
     const data = await res.json()
@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       props: { socials: data },
     }
-  } catch (error) {
+  } catch {
     return {
       props: { socials: null },
     }
