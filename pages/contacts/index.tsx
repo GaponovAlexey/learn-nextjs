@@ -18,7 +18,8 @@ export const getStaticProps: GetServerSideProps = async () => {
 }
 
 type contactInfoType = {
-  contacts: [ContactInfoType]
+  contacts: [ContactInfoType],
+  
 }
 
 const Contacts: FC<contactInfoType> = ({ contacts }) => {
@@ -27,7 +28,7 @@ const Contacts: FC<contactInfoType> = ({ contacts }) => {
       <Head>
         <title>Contacts</title>
       </Head>
-      <Heading text={'home contacts'} />
+      <Heading tag='h3' text={'home contacts'} />
       <ul>
         {contacts &&
           contacts.map(({ name, id, email }) => (

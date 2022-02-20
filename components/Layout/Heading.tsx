@@ -5,7 +5,7 @@ type heading = {
 }
 
 const Heading: FC<heading> = ({ tag, text }) => {
-  const Tag:any = tag || 'h1'
+  const Tag: any = tag || 'h1'
   return <Tag>{text}</Tag>
 }
 
