@@ -7,7 +7,7 @@ import style from '../styles/Home.module.scss'
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const res = await fetch(`process.env.BASE_URL/socials`)
+    const res = await fetch(`${process.env.BASE_URL}/socials`)
     const data = await res.json()
 
     if (!data) {
@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       props: { socials: data },
     }
-  } catch {
+  } catch (error) {
     return {
       props: { socials: null },
     }
@@ -34,6 +34,7 @@ type homeTypeProp = {
 }
 
 const Home: FC<homeTypeProp> = ({ socials }) => {
+  
   if (!socials) {
     return null
   }
