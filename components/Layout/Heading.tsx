@@ -1,6 +1,6 @@
 import { FC } from 'react'
 type heading = {
-  tag: any
+  tag?: any
   text: string
 }
 
