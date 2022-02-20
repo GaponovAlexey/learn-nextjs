@@ -34,10 +34,6 @@ type homeTypeProp = {
 }
 
 const Home: FC<homeTypeProp> = ({ socials }) => {
-  
-  if (!socials) {
-    return null
-  }
   return (
     <div className={style.wrapper}>
       <Head>
