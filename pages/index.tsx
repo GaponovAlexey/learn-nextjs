@@ -34,6 +34,8 @@ type homeTypeProp = {
 }
 
 const Home: FC<homeTypeProp> = ({ socials }) => {
+  console.log(socials)
+
   return (
     <div className={style.wrapper}>
       <Head>
