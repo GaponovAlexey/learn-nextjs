@@ -1,5 +1,11 @@
-const ContactInfo = ({ contact }) => {
-  
+import { FC } from 'react'
+import { ContactInfoType } from './type'
+
+type contactInfoPropsType = {
+  contact: ContactInfoType
+}
+
+const ContactInfo: FC<contactInfoPropsType> = ({ contact }) => {
   const { id, name, email, address } = contact || {}
   const { street, suite, city, zipcode } = address || {}
   if (!contact) {
@@ -13,7 +19,7 @@ const ContactInfo = ({ contact }) => {
         {email}
       </div>
       <div>
-        <string>Address: </string>
+        <div>Address: </div>
         {`${street}, ${suite}, ${city}, ${zipcode}`}
       </div>
     </div>
