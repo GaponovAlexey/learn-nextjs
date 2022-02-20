@@ -5,15 +5,21 @@ import { FC } from 'react'
 import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.API_HOST}/socials`)
-  const data = await res.json()
+export const getStaticProps:GetStaticProps = async () => {
+  try {
+    const res = await fetch(`${process.env.API_HOST}/socials`)
+    const data = await res.json()
 
-  if (!data) {
-    return { notFound: true }
-  }
-  return {
-    props: { socials: data },
+    if (!data) {
+      return { notFound: true }
+    }
+    return {
+      props: { socials: data },
+    }
+  } catch {
+    return {
+      props: { socials: null },
+    }
   }
 }
 
