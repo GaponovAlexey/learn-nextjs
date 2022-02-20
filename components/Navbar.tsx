@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import style from '../styles/Navbar.module.scss'
 
+interface NavbarType {
+  
+}
+
 const Navbar = () => {
   const { pathname } = useRouter()
 

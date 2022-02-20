@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { FC } from 'react'
 import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
@@ -15,7 +16,13 @@ export const getStaticProps = async () => {
   }
 }
 
-const Home = ({ socials }) => {
+interface Hometype {
+  id: number,
+  name: string,
+  imailed: string
+}
+
+const Home:FC<Hometype> = ({ socials }) => {
   if (!socials) {
     return null
   }
@@ -33,7 +40,7 @@ const Home = ({ socials }) => {
         <Link href='./contacts'>Contacts</Link>
       </button>
       <div>
-        {socials && socials.map((el) => <div key={el.id}>{el.name}</div>)}
+        {socials && socials.map(({id, name,}) => <div key={id}>{name}</div>)}
       </div>
     </div>
   )
