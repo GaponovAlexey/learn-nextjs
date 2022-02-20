@@ -28,7 +28,7 @@ const Contacts: FC<contactInfoType> = ({ contacts }) => {
       <Head>
         <title>Contacts</title>
       </Head>
-      <Heading tag='h3' text={'home contacts'} />
+      <Heading tag='h3' text='home contacts' />
       <ul>
         {contacts &&
           contacts.map(({ name, id, email }) => (
