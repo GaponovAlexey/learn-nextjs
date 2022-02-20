@@ -7,7 +7,7 @@ import style from '../styles/Home.module.scss'
 
 export const getStaticProps:GetStaticProps = async () => {
   try {
-    const res = await fetch(`${process.env.BASE_URL}/socials`)
+    const res = await fetch(`${process.env.API_HOST}/socials`)
     const data = await res.json()
 
     if (!data) {
