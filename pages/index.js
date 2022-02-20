@@ -4,7 +4,7 @@ import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/api/socials')
+  const res = await fetch(process.env.BASE_URL + `/socials`)
   const data = await res.json()
 
   if (!data) {
@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ socials }) => {
-  if(!socials) {
+  if (!socials) {
     return null
   }
   return (
