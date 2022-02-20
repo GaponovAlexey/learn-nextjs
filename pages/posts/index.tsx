@@ -5,13 +5,19 @@ import Link from 'next/link'
 const baseURL = 'https://jsonplaceholder.typicode.com/posts'
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const response = await fetch(baseURL)
-  const data = await response.json()
-  if (!data) {
-    return { notFound: true }
-  }
-  return {
-    props: { posts: data.splice(0, 10) },
+  try {
+    const response = await fetch(baseURL)
+    const data = await response.json()
+    if (!data) {
+      return { notFound: true }
+    }
+    return {
+      props: { posts: data.splice(0, 10) },
+    }
+  } catch {
+    return {
+      props: { posts: null },
+    }
   }
 }
 

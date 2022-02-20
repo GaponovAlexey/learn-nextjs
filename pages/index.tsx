@@ -5,24 +5,34 @@ import Heading from '../components/Layout/Heading'
 import style from '../styles/Home.module.scss'
 
 export const getStaticProps = async () => {
-  const res = await fetch(process.env.BASE_URL + `/socials`)
-  const data = await res.json()
+  try {
+    const res = await fetch(process.env.BASE_URL + `/socials`)
+    const data = await res.json()
 
-  if (!data) {
-    return { notFound: true }
-  }
-  return {
-    props: { socials: data },
+    if (!data) {
+      return { notFound: true }
+    }
+    return {
+      props: { socials: data },
+    }
+  } catch (err) {
+    return {
+      props: { socials: null },
+    }
   }
 }
 
 interface Hometype {
-  id: number,
-  name: string,
+  id: number
+  name: string
   imailed: string
 }
 
-const Home:FC<Hometype> = ({ socials }) => {
+type homeTypeProp = {
+  socials: [Hometype]
+}
+
+const Home: FC<homeTypeProp> = ({ socials }) => {
   if (!socials) {
     return null
   }
@@ -40,7 +50,7 @@ const Home:FC<Hometype> = ({ socials }) => {
         <Link href='./contacts'>Contacts</Link>
       </button>
       <div>
-        {socials && socials.map(({id, name,}) => <div key={id}>{name}</div>)}
+        {socials && socials.map(({ id, name }) => <div key={id}>{name}</div>)}
       </div>
     </div>
   )
