@@ -6,8 +6,15 @@ export interface addressType {
 }
 
 export interface ContactInfoType {
-  id: number
+  id: string
   name: string
   email: string
   address: addressType
+}
+
+export type SocialType = {
+  id: number,
+  name: string,
+  email: string,
+  method: string,
 }

@@ -1,9 +1,10 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 
 const baseURL = 'https://jsonplaceholder.typicode.com/posts'
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const response = await fetch(baseURL)
   const data = await response.json()
   if (!data) {

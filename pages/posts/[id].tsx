@@ -1,8 +1,9 @@
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 
 const baseURL = 'https://jsonplaceholder.typicode.com/posts/'
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(baseURL)
   const data = await response.json()
 
@@ -12,7 +13,7 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const { id } = context.params
 
   const response = await fetch(baseURL + `${id}`)
